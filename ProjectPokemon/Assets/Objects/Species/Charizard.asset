@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c239cfd31f00e439c8e73472a7646605, type: 3}
+  m_Name: Charizard
+  m_EditorClassIdentifier: 
+  type1: {fileID: 11400000, guid: dbf9ee7a1c00d424ba33314ead855e35, type: 2}
+  type2: {fileID: 11400000, guid: 5b9d8ecf3d7c845dba27098bf1d91425, type: 2}
+  name: Charizard
+  id: 6
+  baseHP: 78
+  baseAtk: 84
+  baseDef: 78
+  baseSpAtk: 109
+  baseSpDef: 85
+  baseSpd: 100
+  baseHappiness: 0
+  growthRate: 0
+  learnedMoves:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

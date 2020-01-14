@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  strengths: []
+  strengths:
+  - {fileID: 11400000, guid: d289b8e0dd7504ce2a979de08522e0f1, type: 2}
   weaknesses: []
   resistances: []

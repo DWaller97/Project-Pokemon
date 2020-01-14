@@ -8,6 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Pokemon Species", menuName = "Project Pokemon/Pokemon/Species", order = 1)]
 public class BasePokemon : ScriptableObject
 {
+    public Type type1, type2;
     public enum GrowthRate
     {
         Fast,

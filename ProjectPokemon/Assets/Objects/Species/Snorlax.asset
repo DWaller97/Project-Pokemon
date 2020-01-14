@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c239cfd31f00e439c8e73472a7646605, type: 3}
+  m_Name: Snorlax
+  m_EditorClassIdentifier: 
+  type1: {fileID: 11400000, guid: 7c0e15e4b3b8549459549d88b5e2ad5d, type: 2}
+  type2: {fileID: 0}
+  name: Snorlax
+  id: 143
+  baseHP: 160
+  baseAtk: 110
+  baseDef: 65
+  baseSpAtk: 65
+  baseSpDef: 110
+  baseSpd: 30
+  baseHappiness: 0
+  growthRate: 0
+  learnedMoves: []

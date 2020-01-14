@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
+  m_Name: Red's Charizard
+  m_EditorClassIdentifier: 
+  species: {fileID: 11400000, guid: 7d16ed0a32ab840e18d2bae425fd4f02, type: 2}
+  nickname: 
+  level: 84
+  currHP: 225
+  maxHP: 225
+  attack: 146
+  defence: 136
+  specialAttack: 188
+  specialDefence: 147
+  speed: 173
+  move1: {fileID: 0}
+  move2: {fileID: 0}
+  move3: {fileID: 0}
+  move4: {fileID: 0}
+  currHappiness: 0
