@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Normal
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  strengths: []
+  strengths:
+  - {fileID: 11400000, guid: b4c1a89283a594459b9aea955036c44b, type: 2}
+  - {fileID: 11400000, guid: a2ad8ad7a5a7d4fbe86c9d57ad44124d, type: 2}
   weaknesses:
   - {fileID: 11400000, guid: d2c74ae928021437684e720601c34543, type: 2}
   resistances: []
+  noEffectOn:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}
+  notAffectedBy:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}

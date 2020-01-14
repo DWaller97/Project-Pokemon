@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type1: {fileID: 11400000, guid: dbf9ee7a1c00d424ba33314ead855e35, type: 2}
   type2: {fileID: 11400000, guid: 5b9d8ecf3d7c845dba27098bf1d91425, type: 2}
+  relativePathToPrefab: Prefabs/Pokemon/Charizard
   name: Charizard
   id: 6
   baseHP: 78

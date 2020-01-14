@@ -22,8 +22,8 @@ MonoBehaviour:
   specialAttack: 111
   specialDefence: 185
   speed: 54
-  move1: {fileID: 0}
-  move2: {fileID: 0}
-  move3: {fileID: 0}
-  move4: {fileID: 0}
+  move1: {fileID: 11400000, guid: 786cfba43cff5446a81f9c0151b04e91, type: 2}
+  move2: {fileID: 11400000, guid: 441dc88e761fd4266a02e1bc510964ec, type: 2}
+  move3: {fileID: 11400000, guid: 92543421de23b4c8cb90f2bef983d053, type: 2}
+  move4: {fileID: 11400000, guid: c67b91ca4050f48fdb797a9c1e96f8c6, type: 2}
   currHappiness: 0

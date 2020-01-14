@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  strengths: []
+  strengths:
+  - {fileID: 11400000, guid: eaddbb0d40aea471ab208c244fe5f92b, type: 2}
+  - {fileID: 11400000, guid: a2ad8ad7a5a7d4fbe86c9d57ad44124d, type: 2}
   weaknesses:
   - {fileID: 11400000, guid: d289b8e0dd7504ce2a979de08522e0f1, type: 2}
-  resistances: []
+  resistances:
+  - {fileID: 11400000, guid: d289b8e0dd7504ce2a979de08522e0f1, type: 2}
+  - {fileID: 11400000, guid: a2ad8ad7a5a7d4fbe86c9d57ad44124d, type: 2}
+  noEffectOn: []
+  notAffectedBy: []

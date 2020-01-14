@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: dbf9ee7a1c00d424ba33314ead855e35, type: 2}
-  damage: 90
+  category: 1
+  damage: 95
   hitChance: 100
+  maxPP: 15
   chanceOfPoison: 0
   chanceOfFreeze: 0
   chanceOfSleep: 0

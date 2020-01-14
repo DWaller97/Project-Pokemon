@@ -22,7 +22,6 @@ public class Pokemon : ScriptableObject
         specialDefence = (int)(((/*IV + */ 2 * species.baseSpDef /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
         speed = (int)(((/*IV + */ 2 * species.baseSpd /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
     }
-
     public BasePokemon species;
     public string nickname;
     //IV's

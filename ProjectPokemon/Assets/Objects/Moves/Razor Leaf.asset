@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Razor Leaf
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: eaddbb0d40aea471ab208c244fe5f92b, type: 2}
-  damage: 60
-  hitChance: 0
+  category: 0
+  damage: 55
+  hitChance: 95
+  maxPP: 25
   chanceOfPoison: 0
   chanceOfFreeze: 0
   chanceOfSleep: 0

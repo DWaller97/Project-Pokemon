@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2418666972
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: pokemon.charizard
+      Dependencies: {}

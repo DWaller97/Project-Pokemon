@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Smokescreen
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 7c0e15e4b3b8549459549d88b5e2ad5d, type: 2}
+  category: 2
   damage: 0
   hitChance: 100
+  maxPP: 0
   chanceOfPoison: 0
   chanceOfFreeze: 0
   chanceOfSleep: 0

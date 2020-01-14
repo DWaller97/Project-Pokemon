@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15b8bd9d18fe407a9c27b6139e6ff80, type: 3}
   m_Name: Dragon Pulse
   m_EditorClassIdentifier: 
-  type: {fileID: 0}
+  type: {fileID: 11400000, guid: 8e26a3499bbd74886979a8a14f513603, type: 2}
   category: 0
-  damage: 0
-  hitChance: 0
-  maxPP: 15
+  damage: 85
+  hitChance: 100
+  maxPP: 10
   chanceOfPoison: 0
   chanceOfFreeze: 0
   chanceOfSleep: 0

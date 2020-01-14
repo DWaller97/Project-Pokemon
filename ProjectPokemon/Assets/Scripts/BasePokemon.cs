@@ -16,7 +16,7 @@ public class BasePokemon : ScriptableObject
         Slow
     }
 
-
+    public string relativePathToPrefab;
     public string name;
     public int id;
     public int baseHP, baseAtk, baseDef, baseSpAtk, baseSpDef, baseSpd;

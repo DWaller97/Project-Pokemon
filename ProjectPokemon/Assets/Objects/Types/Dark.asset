@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Dark
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  strengths: []
-  weaknesses: []
+  strengths:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}
+  weaknesses:
+  - {fileID: 11400000, guid: d2c74ae928021437684e720601c34543, type: 2}
   resistances: []
+  noEffectOn: []
+  notAffectedBy: []

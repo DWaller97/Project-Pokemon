@@ -17,4 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c0e15e4b3b8549459549d88b5e2ad5d, type: 2}
   weaknesses:
   - {fileID: 11400000, guid: 5b9d8ecf3d7c845dba27098bf1d91425, type: 2}
-  resistances: []
+  resistances:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}
+  noEffectOn:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}
+  notAffectedBy:
+  - {fileID: 11400000, guid: 6cb14bf1f6661476dbc8b925a75bb100, type: 2}

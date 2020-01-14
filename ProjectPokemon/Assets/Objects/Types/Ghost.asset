@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   strengths: []
-  weaknesses: []
+  weaknesses:
+  - {fileID: 11400000, guid: b4c1a89283a594459b9aea955036c44b, type: 2}
   resistances: []
+  noEffectOn:
+  - {fileID: 11400000, guid: 7c0e15e4b3b8549459549d88b5e2ad5d, type: 2}
+  - {fileID: 11400000, guid: d2c74ae928021437684e720601c34543, type: 2}
+  notAffectedBy:
+  - {fileID: 11400000, guid: 7c0e15e4b3b8549459549d88b5e2ad5d, type: 2}
+  - {fileID: 11400000, guid: d2c74ae928021437684e720601c34543, type: 2}
