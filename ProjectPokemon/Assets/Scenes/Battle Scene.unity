@@ -751,6 +751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fight UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4609149735921880108, guid: af889d4fe867548469a524edb4ac90b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 643958820511872173, guid: af889d4fe867548469a524edb4ac90b0,
         type: 3}
       propertyPath: m_LocalPosition.x

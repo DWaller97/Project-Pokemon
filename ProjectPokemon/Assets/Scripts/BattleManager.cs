@@ -7,33 +7,45 @@ public class BattleManager : MonoBehaviour
 
     public Transform playerPosition, enemyPosition;
     public GameManager managerRef;
+    static Dictionary<string, Object> loadedBundles;
     void Start()
     {
+        loadedBundles = new Dictionary<string, Object>();
         managerRef = GameManager.GetGameManager();
         //Go through all the Pokemon and load any.
         //Check for duplicates.
-        if(managerRef.playerTrainer.pokemon[0] == GameManager.trainer.pokemon[0]){
-            StartCoroutine(LoadTrainerPokemon(GameManager.trainer, enemyPosition.position));
-        }else{
-            StartCoroutine(LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position));
-            StartCoroutine(LoadTrainerPokemon(GameManager.trainer, enemyPosition.position));
-        }
+        LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position);
+        //LoadTrainerPokemon(GameManager.trainer, enemyPosition.position);
     }
 
-    IEnumerator LoadTrainerPokemon(Trainer trainer, Vector3 position){
-        AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync($"Assets/Bundles/Mac/pokemon.charizard");
-        if(req.assetBundle == null)
+    IEnumerator LoadAsset(string bundleName){
+        if(loadedBundles.ContainsKey(bundleName))
+        {
+            Debug.LogWarning($"{bundleName} already loaded.");
             yield break;
-        while(!req.isDone){
-            yield return null;
         }
-        Debug.Log(req.assetBundle.name);
-        AssetBundleRequest bundle = req.assetBundle.LoadAssetAsync<GameObject>(trainer.pokemon[0].name);
-        while(!bundle.isDone){
-            yield return null;
+
+        AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync($"Assets/Bundles/Mac/pokemon.{bundleName}");
+        yield return req;
+        AssetBundle bundle = req.assetBundle;
+        if(bundle == null){
+            Debug.LogError("Asset failed to load");
+            yield break;
         }
-        GameObject obj = (GameObject)bundle.asset;
-        Instantiate(obj, position, Quaternion.identity);
+        AssetBundleRequest assetLoadReq = bundle.LoadAssetAsync<GameObject>(bundleName);
+        yield return assetLoadReq;
+
+        GameObject prefab = assetLoadReq.asset as GameObject;
+        
+        loadedBundles.Add(bundleName, assetLoadReq.asset);
+    }
+    void LoadTrainerPokemon(Trainer trainer, Vector3 position){
+        if(!loadedBundles.ContainsKey(trainer.pokemon[0].species.name))
+            StartCoroutine(LoadAsset(trainer.pokemon[0].species.name));
+        Object pkmn;
+        loadedBundles.TryGetValue(trainer.pokemon[0].species.name, out pkmn);
+
+        Instantiate(pkmn as GameObject, position, Quaternion.identity);
     }
 
 

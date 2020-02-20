@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
+  m_Name: A
+  m_EditorClassIdentifier: 
+  nickname: 
+  species: {fileID: 0}
+  nature: {fileID: 0}
+  currHappiness: 0
+  move1: {fileID: 0}
+  move2: {fileID: 0}
+  move3: {fileID: 0}
+  move4: {fileID: 0}
+  hpIV: 0
+  atkIV: 0
+  defIV: 0
+  spAtkIV: 0
+  spDefIV: 0
+  spdIV: 0
+  hpEV: 0
+  atkEV: 0
+  defEV: 0
+  spAtkEV: 0
+  spDefEV: 0
+  spdEV: 0
+  level: 50
+  maxHP: 0
+  currHP: 0
+  attack: 0
+  defence: 0
+  specialAttack: 0
+  specialDefence: 0
+  speed: 0

@@ -12,18 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
   m_Name: Red's Charizard
   m_EditorClassIdentifier: 
-  species: {fileID: 11400000, guid: 7d16ed0a32ab840e18d2bae425fd4f02, type: 2}
   nickname: 
-  level: 84
-  currHP: 225
-  maxHP: 225
-  attack: 146
-  defence: 136
-  specialAttack: 188
-  specialDefence: 147
-  speed: 173
+  species: {fileID: 11400000, guid: 7d16ed0a32ab840e18d2bae425fd4f02, type: 2}
+  nature: {fileID: 0}
+  currHappiness: 0
   move1: {fileID: 11400000, guid: 1c86ce7349af74b0fb16447d52f21347, type: 2}
   move2: {fileID: 11400000, guid: 70508fafca3ba426e84803730a6fec47, type: 2}
   move3: {fileID: 11400000, guid: 3f5b90bd5c5394fdca4a7978f8bec6b8, type: 2}
   move4: {fileID: 11400000, guid: 746268cadce19423184b87c38eedd17d, type: 2}
-  currHappiness: 0
+  hpIV: 20
+  atkIV: 15
+  defIV: 31
+  spAtkIV: 31
+  spDefIV: 5
+  spdIV: 20
+  hpEV: 255
+  atkEV: 0
+  defEV: 0
+  spAtkEV: 0
+  spDefEV: 0
+  spdEV: 0
+  level: 100
+  maxHP: 349
+  currHP: 349
+  attack: 188
+  defence: 192
+  specialAttack: 254
+  specialDefence: 180
+  speed: 225

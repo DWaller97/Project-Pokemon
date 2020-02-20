@@ -20,6 +20,7 @@ public class BasePokemon : ScriptableObject
     public string name;
     public int id;
     public int baseHP, baseAtk, baseDef, baseSpAtk, baseSpDef, baseSpd;
+
     public int baseHappiness;
     public GrowthRate growthRate;
 

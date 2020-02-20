@@ -12,23 +12,92 @@ public class Pokemon : ScriptableObject
     /// Called when the script is loaded or a value is changed in the
     /// inspector (Called in the editor only).
     /// </summary>
+    
+
     void OnValidate()
     {
-        maxHP = (int)(((/*IV*/ 2 * species.baseHP /* + (IV / 4 )*/) * level / 100) + 10 + level);
+        totalEV = hpEV + atkEV + defEV + spAtkEV + spDefEV + spdEV;
+        maxHP = (int)((((2 * species.baseHP + hpIV + (hpEV / 4 )) * level) / 100) + level + 10);
         currHP = maxHP;
-        attack = (int)(((/*IV + */ 2 * species.baseAtk /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
-        defence = (int)(((/*IV + */ 2 * species.baseDef /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
-        specialAttack = (int)(((/*IV + */ 2 * species.baseSpAtk /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
-        specialDefence = (int)(((/*IV + */ 2 * species.baseSpDef /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
-        speed = (int)(((/*IV + */ 2 * species.baseSpd /* + (IV / 4) */) * level / 100) + 5); /* * Nature*/
+        attack = (int)(((((2 * species.baseAtk + atkIV + (atkEV / 4)) * level) / 100) + 5));  /* * Nature*/
+        defence = (int)(((((2 * species.baseDef + defIV + (defEV / 4)) * level) / 100) + 5)); /* * Nature*/
+        specialAttack = (int)(((((2 * species.baseSpAtk + spAtkIV + (spAtkEV / 4)) * level) / 100) + 5)); /* * Nature*/
+        specialDefence = (int)(((((2 * species.baseSpDef + spDefIV + (spDefEV / 4)) * level) / 100) + 5)); /* * Nature*/
+        speed = (int)(((((2 * species.baseSpd + spdIV + (spdEV / 4)) * level) / 100) + 5)); /* * Nature*/
+        AddNatureToStat();
+
     }
-    public BasePokemon species;
+
+    void AddNatureToStat(){
+
+        if(nature.statToIncrease == nature.statToDecrease)
+            return;
+
+        if(nature.statToIncrease == Nature.Stats.Atk){
+            attack = (int)(attack * 1.1f);
+        }
+        if(nature.statToIncrease == Nature.Stats.Def){
+            defence = (int)(defence  * 1.1f);
+        }
+        if(nature.statToIncrease == Nature.Stats.SpAtk){
+            specialAttack = (int)(specialAttack * 1.1f);
+        }
+        if(nature.statToIncrease == Nature.Stats.SpDef){
+            specialDefence = (int)(specialDefence * 1.1f);
+        }
+        if(nature.statToIncrease == Nature.Stats.Spd){
+            speed = (int)(speed * 1.1f);
+        }
+
+        if(nature.statToDecrease == Nature.Stats.Atk){
+            attack = (int)(attack * 0.9f);
+        }
+        if(nature.statToDecrease == Nature.Stats.Def){
+            defence = (int)(defence * 0.9f);
+        }
+        if(nature.statToDecrease == Nature.Stats.SpAtk){
+            specialAttack = (int)(specialAttack * 0.9f);
+        }
+        if(nature.statToDecrease == Nature.Stats.SpDef){
+            specialDefence = (int)(specialDefence * 0.9f);
+        }
+        if(nature.statToDecrease == Nature.Stats.Spd){
+            speed = (int)(speed * 0.9f);
+        }
+
+    }
+    
+
     public string nickname;
-    //IV's
-    //EV's
-    public int level = 50;
-    public int currHP, maxHP;
-    public int attack, defence, specialAttack, specialDefence, speed;
-    public Move move1, move2, move3, move4;
+    public BasePokemon species;
+    public Nature nature;
     public int currHappiness;
+    [Space]
+    [Header("Moves")]
+    public Move move1;
+    public Move move2, move3, move4;
+    
+    [Space]
+    [Header("Individual Values")]
+    [Range(0, 31)]
+    public int hpIV;
+    [Range(0, 31)]
+    public int atkIV, defIV, spAtkIV, spDefIV, spdIV;
+
+    public static int totalEV;
+
+    [Space]
+    [Header("Effort Values (Max: 510)")]
+    [Range(0, 255)]
+    public int hpEV;
+    [Range(0, 255)]
+    public int atkEV, defEV, spAtkEV, spDefEV, spdEV;
+    [Space]
+    [Range(1, 100)]
+    public int level = 50;
+    [Space]
+    [Header("Final Stats")]
+    public int maxHP;
+    public int currHP, attack, defence, specialAttack, specialDefence, speed;
+    //Make a generate button for random stats
 }
