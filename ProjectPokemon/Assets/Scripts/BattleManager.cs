@@ -14,9 +14,28 @@ public class BattleManager : MonoBehaviour
         managerRef = GameManager.GetGameManager();
         //Go through all the Pokemon and load any.
         //Check for duplicates.
-        LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position);
+        LoadAndInstantiate(managerRef.playerTrainer, playerPosition.position);
+        
+        //LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position);
         //LoadTrainerPokemon(GameManager.trainer, enemyPosition.position);
     }
+
+    void LoadAndInstantiate(Trainer trainer, Vector3 pos){
+        GameObject obj;
+        Object objToConvert;
+        string bundleName = trainer.pokemon[0].name;
+        if(loadedBundles.ContainsKey(bundleName)){
+            if(loadedBundles.TryGetValue(bundleName, out objToConvert)){
+                obj = Instantiate((GameObject)objToConvert, pos, Quaternion.identity);
+            }
+        }else{
+            AssetBundle bundle = AssetBundle.LoadFromFile($"Assets/Bundles/Mac/pokemon.{bundleName}");
+            objToConvert = bundle.LoadAsset(bundleName);
+            loadedBundles.Add(bundleName, objToConvert);
+            obj = Instantiate(objToConvert as GameObject, pos, Quaternion.identity);
+        }
+    }
+
 
     IEnumerator LoadAsset(string bundleName){
         if(loadedBundles.ContainsKey(bundleName))

@@ -56,17 +56,14 @@ public class GameManager : MonoBehaviour
             return;
         }
         Debug.Log("Start Battle");
-        StartCoroutine(LoadBattleScene(trainer));
+        LoadBattleScene(trainer);
 
     }
 
 
-    private IEnumerator LoadBattleScene(Trainer trainer){
+    private void LoadBattleScene(Trainer trainer){
         Debug.Log($"Loading battle against: {trainer.trainerTitle} {trainer.name}");
-        AsyncOperation op = SceneManager.LoadSceneAsync("Battle Scene");
-        while(!op.isDone){
-            yield return null;
-        }
+        SceneManager.LoadScene("Battle Scene");
         
     }
 
