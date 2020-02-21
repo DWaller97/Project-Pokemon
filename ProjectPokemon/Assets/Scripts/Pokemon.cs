@@ -14,20 +14,32 @@ public class Pokemon : ScriptableObject
     /// </summary>
     
 
+    
     void OnValidate()
     {
+        AddUpStats();
+        AddNatureToStat();
+    }
+
+    /// <summary>
+    /// Calculates the final stat values based on EV's, IV's, level, nature, and base stats.
+    /// HP is calculated differently to the rest.
+    /// </summary>
+    void AddUpStats(){
         totalEV = hpEV + atkEV + defEV + spAtkEV + spDefEV + spdEV;
         maxHP = (int)((((2 * species.baseHP + hpIV + (hpEV / 4 )) * level) / 100) + level + 10);
         currHP = maxHP;
-        attack = (int)(((((2 * species.baseAtk + atkIV + (atkEV / 4)) * level) / 100) + 5));  /* * Nature*/
-        defence = (int)(((((2 * species.baseDef + defIV + (defEV / 4)) * level) / 100) + 5)); /* * Nature*/
-        specialAttack = (int)(((((2 * species.baseSpAtk + spAtkIV + (spAtkEV / 4)) * level) / 100) + 5)); /* * Nature*/
-        specialDefence = (int)(((((2 * species.baseSpDef + spDefIV + (spDefEV / 4)) * level) / 100) + 5)); /* * Nature*/
-        speed = (int)(((((2 * species.baseSpd + spdIV + (spdEV / 4)) * level) / 100) + 5)); /* * Nature*/
-        AddNatureToStat();
-
+        attack = (int)(((((2 * species.baseAtk + atkIV + (atkEV / 4)) * level) / 100) + 5));  
+        defence = (int)(((((2 * species.baseDef + defIV + (defEV / 4)) * level) / 100) + 5)); 
+        specialAttack = (int)(((((2 * species.baseSpAtk + spAtkIV + (spAtkEV / 4)) * level) / 100) + 5)); 
+        specialDefence = (int)(((((2 * species.baseSpDef + spDefIV + (spDefEV / 4)) * level) / 100) + 5));
+        speed = (int)(((((2 * species.baseSpd + spdIV + (spdEV / 4)) * level) / 100) + 5)); 
     }
 
+    /// <summary>
+    /// This grabs which stat to change and changes the value of the specific stat.
+    /// There are 25 total combinations, including 5 which increase and decrease the same stat so in this case, I return.
+    /// </summary>
     void AddNatureToStat(){
 
         if(nature.statToIncrease == nature.statToDecrease)
@@ -67,10 +79,16 @@ public class Pokemon : ScriptableObject
 
     }
     
-
+    [Space]
+    [Range(1, 100)]
+    public int level = 50;
+[Tooltip("The player's chosen name for their personal Pokemon")]
     public string nickname;
+    [Tooltip("The Pokemon's species")]
     public BasePokemon species;
+    [Tooltip("Natures increase one stat by 10% and reduce another by 10%")]
     public Nature nature;
+    [Tooltip("In-game, happiness affects moves such as return and is an evolution method")]
     public int currHappiness;
     [Space]
     [Header("Moves")]
@@ -84,7 +102,7 @@ public class Pokemon : ScriptableObject
     [Range(0, 31)]
     public int atkIV, defIV, spAtkIV, spDefIV, spdIV;
 
-    public static int totalEV;
+[Tooltip("Total EV's of a Pokemon. Maximum of 510 is allowed in-game")]
 
     [Space]
     [Header("Effort Values (Max: 510)")]
@@ -92,9 +110,9 @@ public class Pokemon : ScriptableObject
     public int hpEV;
     [Range(0, 255)]
     public int atkEV, defEV, spAtkEV, spDefEV, spdEV;
-    [Space]
-    [Range(1, 100)]
-    public int level = 50;
+    public int totalEV;
+
+
     [Space]
     [Header("Final Stats")]
     public int maxHP;
