@@ -15,5 +15,5 @@ MonoBehaviour:
   trainerTitle: 4
   trainerName: Player
   pokemon:
-  - {fileID: 11400000, guid: 01d61f5520f7749b398359cfd93801da, type: 2}
+  - {fileID: 11400000, guid: 850b4772de195418e9acfb00de53a602, type: 2}
   cashReward: 0

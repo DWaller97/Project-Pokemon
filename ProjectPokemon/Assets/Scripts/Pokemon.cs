@@ -42,7 +42,7 @@ public class Pokemon : ScriptableObject
     /// </summary>
     void AddNatureToStat(){
 
-        if(nature.statToIncrease == nature.statToDecrease)
+        if(nature == null || nature.statToIncrease == nature.statToDecrease)
             return;
 
         if(nature.statToIncrease == Nature.Stats.Atk){

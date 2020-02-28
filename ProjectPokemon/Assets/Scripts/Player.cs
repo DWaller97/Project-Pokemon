@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Trainer trainer;
+    public Trainer trainer;
     
 }

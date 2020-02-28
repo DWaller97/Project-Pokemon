@@ -10,20 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
-  m_Name: New Pokemon
+  m_Name: Charizard
   m_EditorClassIdentifier: 
-  species: {fileID: 11400000, guid: 7d16ed0a32ab840e18d2bae425fd4f02, type: 2}
+  level: 100
   nickname: 
-  level: 51
-  currHP: 140
-  maxHP: 140
-  attack: 90
-  defence: 84
-  specialAttack: 116
-  specialDefence: 91
-  speed: 107
+  species: {fileID: 11400000, guid: 7d16ed0a32ab840e18d2bae425fd4f02, type: 2}
+  nature: {fileID: 0}
+  currHappiness: 100
   move1: {fileID: 11400000, guid: a762db6e28f4245b880644ec4bcb3487, type: 2}
   move2: {fileID: 11400000, guid: 746268cadce19423184b87c38eedd17d, type: 2}
   move3: {fileID: 11400000, guid: 3f5b90bd5c5394fdca4a7978f8bec6b8, type: 2}
-  move4: {fileID: 0}
-  currHappiness: -241
+  move4: {fileID: 11400000, guid: 441dc88e761fd4266a02e1bc510964ec, type: 2}
+  hpIV: 14
+  atkIV: 31
+  defIV: 20
+  spAtkIV: 19
+  spDefIV: 14
+  spdIV: 17
+  hpEV: 0
+  atkEV: 255
+  defEV: 0
+  spAtkEV: 0
+  spDefEV: 0
+  spdEV: 255
+  totalEV: 510
+  maxHP: 280
+  currHP: 280
+  attack: 267
+  defence: 181
+  specialAttack: 242
+  specialDefence: 189
+  speed: 285
