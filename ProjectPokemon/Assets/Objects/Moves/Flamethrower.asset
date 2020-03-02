@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: dbf9ee7a1c00d424ba33314ead855e35, type: 2}
   category: 1
-  damage: 95
+  damage: 90
   hitChance: 100
   maxPP: 15
   chanceOfPoison: 0

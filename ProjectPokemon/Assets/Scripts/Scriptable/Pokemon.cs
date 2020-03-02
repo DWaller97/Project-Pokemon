@@ -41,8 +41,9 @@ public class Pokemon : ScriptableObject
     /// There are 25 total combinations, including 5 which increase and decrease the same stat so in this case, I return.
     /// </summary>
     void AddNatureToStat(){
-
-        if(nature == null || nature.statToIncrease == nature.statToDecrease)
+        if(nature == null)
+            return;
+        if(nature.statToIncrease == nature.statToDecrease)
             return;
 
         if(nature.statToIncrease == Nature.Stats.Atk){
@@ -118,4 +119,24 @@ public class Pokemon : ScriptableObject
     public int maxHP;
     public int currHP, attack, defence, specialAttack, specialDefence, speed;
     //Make a generate button for random stats
+
+    public void TakeDamage(int damage){
+        currHP -= damage;
+        if(currHP <= 0){
+            currHP = 0;
+            Debug.Log($"{name} has fainted.");
+        }
+
+    }
+
+    public void Heal(int healAmount){
+        currHP += healAmount;
+        if(currHP > maxHP)
+            currHP = maxHP;
+    }
+
+    public void ResetHealth(){
+        currHP = maxHP;
+    }
+
 }

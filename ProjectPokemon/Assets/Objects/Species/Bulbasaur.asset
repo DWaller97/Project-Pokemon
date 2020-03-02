@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c239cfd31f00e439c8e73472a7646605, type: 3}
   m_Name: Bulbasaur
   m_EditorClassIdentifier: 
+  type1: {fileID: 11400000, guid: eaddbb0d40aea471ab208c244fe5f92b, type: 2}
+  type2: {fileID: 0}
+  relativePathToPrefab: 
   name: Bulbasaur
   id: 1
-  baseHP: 20
-  baseAtk: 5
-  baseDef: 3
-  baseSpAtk: 10
-  baseSpDef: 8
-  baseSpd: 2
+  baseHP: 45
+  baseAtk: 49
+  baseDef: 49
+  baseSpAtk: 65
+  baseSpDef: 65
+  baseSpd: 45
   baseHappiness: 50
   growthRate: 1
   learnedMoves:

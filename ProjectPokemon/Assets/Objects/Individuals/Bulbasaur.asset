@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
   m_Name: Bulbasaur
   m_EditorClassIdentifier: 
-  nickname: Bulby
+  level: 100
+  nickname: 
   species: {fileID: 11400000, guid: f3f4cfe11c2d7456fb59ee7187fc7313, type: 2}
-  nature: {fileID: 11400000, guid: 8cad6089242254c7c94707d3a6ecb140, type: 2}
+  nature: {fileID: 11400000, guid: 230ca5fb57ddd4d8ebe768af53e6f029, type: 2}
   currHappiness: 0
   move1: {fileID: 11400000, guid: 8d9d5c19622bd4aa7aa97019b751bb5a, type: 2}
   move2: {fileID: 0}
@@ -32,11 +33,11 @@ MonoBehaviour:
   spAtkEV: 0
   spDefEV: 0
   spdEV: 0
-  level: 100
-  maxHP: 181
-  currHP: 181
-  attack: 46
-  defence: 42
-  specialAttack: 61
-  specialDefence: 46
-  speed: 40
+  totalEV: 0
+  maxHP: 231
+  currHP: 231
+  attack: 134
+  defence: 147
+  specialAttack: 149
+  specialDefence: 166
+  speed: 126

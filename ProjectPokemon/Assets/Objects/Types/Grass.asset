@@ -15,5 +15,9 @@ MonoBehaviour:
   icon: {fileID: 0}
   strengths:
   - {fileID: 11400000, guid: d289b8e0dd7504ce2a979de08522e0f1, type: 2}
-  weaknesses: []
-  resistances: []
+  weaknesses:
+  - {fileID: 11400000, guid: dbf9ee7a1c00d424ba33314ead855e35, type: 2}
+  resistances:
+  - {fileID: 11400000, guid: d289b8e0dd7504ce2a979de08522e0f1, type: 2}
+  noEffectOn: []
+  notAffectedBy: []
