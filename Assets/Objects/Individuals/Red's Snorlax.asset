@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8afd5ab41c4b4a24a3955204f6db4b9, type: 3}
+  m_Name: Red's Snorlax
+  m_EditorClassIdentifier: 
+  level: 82
+  nickname: 
+  species: {fileID: 11400000, guid: a917eae172fe14ac89086f313873acfc, type: 2}
+  nature: {fileID: 11400000, guid: 9c567cbff97c14947b1ea54a5ed676aa, type: 2}
+  currHappiness: 0
+  move1: {fileID: 11400000, guid: 786cfba43cff5446a81f9c0151b04e91, type: 2}
+  move2: {fileID: 11400000, guid: 441dc88e761fd4266a02e1bc510964ec, type: 2}
+  move3: {fileID: 11400000, guid: 92543421de23b4c8cb90f2bef983d053, type: 2}
+  move4: {fileID: 11400000, guid: c67b91ca4050f48fdb797a9c1e96f8c6, type: 2}
+  hpIV: 31
+  atkIV: 0
+  defIV: 0
+  spAtkIV: 0
+  spDefIV: 0
+  spdIV: 0
+  hpEV: 255
+  atkEV: 0
+  defEV: 0
+  spAtkEV: 0
+  spDefEV: 0
+  spdEV: 0
+  totalEV: 255
+  maxHP: 431
+  currHP: 431
+  attack: 203
+  defence: 111
+  specialAttack: 99
+  specialDefence: 185
+  speed: 54
