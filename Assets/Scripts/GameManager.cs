@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         Menu
     };
 
-    private static GameState gameState = GameState.Overworld;
+    private static GameState gameState = GameState.Battle;
     public static Trainer trainer;
     public Trainer playerTrainer;
     private static bool stateLoaded = false;
@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour
             stateLoaded = false;
         Debug.Log($"Game State Changed to {newState}");
     }
+
+    public static GameState GetGameState(){
+        return gameState;
+    }
+
     private void StartBattle(Trainer trainer){
         if(trainer.pokemon.Count <= 0){
             Debug.LogError($"Trainer: {trainer.trainerName} has no Pokemon");

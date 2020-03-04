@@ -32,7 +32,6 @@ public class BattleUI : MonoBehaviour
         enemyPokemonNameText.text = enemyPokemonNickname;
         allyLevelText.text = $"Lv. {allyLvl}";
         enemyLevelText.text = $"Lv. {enemyLvl}";
-
         allyHealthText.text = $"{allyHP}/{allyMaxHP}";
         allyHealthSlider.value = ((float)allyHP / (float)allyMaxHP);
         enemyHealthSlider.value = ((float)enemyHP / (float)enemyMaxHP);
