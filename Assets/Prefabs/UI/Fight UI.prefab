@@ -3397,8 +3397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.3999329, y: -4.0099525}
-  m_SizeDelta: {x: 196.21002, y: 20.120003}
+  m_AnchoredPosition: {x: -8.45, y: -4.0099525}
+  m_SizeDelta: {x: 193.93, y: 20.12}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1276379685654210606
 CanvasRenderer:
@@ -3570,6 +3570,7 @@ GameObject:
   - component: {fileID: 643958820511872173}
   - component: {fileID: 1181879174641439917}
   - component: {fileID: 369032590582197949}
+  - component: {fileID: 2749508434393847930}
   m_Layer: 5
   m_Name: Fight UI
   m_TagString: Untagged
@@ -3635,6 +3636,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2749508434393847930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699453465522857013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00f6dc25a3284865b9350c75dcab4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: {fileID: 7765671605779549383}
+  buttonAnchors:
+  - {fileID: 673466388989542394}
+  - {fileID: 8470021819532764134}
+  - {fileID: 1890852462012708183}
+  - {fileID: 3525793353325962706}
+  buttons:
+  - {fileID: 234320503}
+  - {fileID: 956377466}
+  - {fileID: 445001109}
+  - {fileID: 1577370066}
+  allyPokemonNameText: {fileID: 958300327}
+  enemyPokemonNameText: {fileID: 1595724174761377652}
+  allyLevelText: {fileID: 1978540247}
+  enemyLevelText: {fileID: 6083097502425802668}
+  allyHealthText: {fileID: 1157945424}
+  allyHealthSlider: {fileID: 1120347698}
+  enemyHealthSlider: {fileID: 6352976846150238090}
+  expSlider: {fileID: 0}
 --- !u!1 &2157017010741041782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,7 +3699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 33}
+  m_AnchoredPosition: {x: -93.2, y: 33}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2599765561597623230
@@ -3702,7 +3734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -41.2}
+  m_AnchoredPosition: {x: -93.19998, y: -41.2}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3027583711143905600
@@ -4310,7 +4342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -4.5}
+  m_AnchoredPosition: {x: -93.19998, y: -4.5}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6712016308632248998
@@ -4345,7 +4377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: -77.2}
+  m_AnchoredPosition: {x: -93.19998, y: -77.2}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7765671605779549383
@@ -4382,7 +4414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 33}
+  m_AnchoredPosition: {x: -93.19998, y: 33}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3616818772578058999
@@ -4565,8 +4597,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000045776367, y: 0}
-  m_SizeDelta: {x: -3.7949, y: 20}
+  m_AnchoredPosition: {x: 1.8975067, y: 0}
+  m_SizeDelta: {x: -12.25, y: 20}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &6352976846150238090
 MonoBehaviour:

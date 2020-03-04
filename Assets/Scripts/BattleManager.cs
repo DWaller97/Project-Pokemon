@@ -8,6 +8,14 @@ public class BattleManager : MonoBehaviour
     public Transform playerPosition, enemyPosition;
     public GameManager managerRef;
     static Dictionary<string, Object> loadedBundles;
+
+    public enum AttackEffectiveness{
+        NoEffect,
+        NotVeryEffective,
+        Normal,
+        SuperEffective
+    };
+
     void Start()
     {
         loadedBundles = new Dictionary<string, Object>();

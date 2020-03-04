@@ -5,51 +5,75 @@ using UnityEngine.UI;
 public class Battle : MonoBehaviour
 {
 
-    public GameObject fightUI;
-    BattleUI battleUI;
+    //TODO: Put all UI stuff in BattleUI class or make a master UI class
+    public GameObject fightUI, messageUI;
+    BattleUI battleUIClass;
+    MessageUI messageUIClass;
+    MessageUI.BattleMessage battleMessage = new MessageUI.BattleMessage();
     public Pokemon testPokemon, testPokemonEnemy;
     Pokemon yourPokemon, enemyPokemon;
-    bool attacking = false, yourTurn = true;
+    bool attacking = false, yourTurn = true, runningTurn = false;
 
-    void ShowHUD(bool show){
-        fightUI.SetActive(show);
-    }
 
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
+
     void Start()
     {
-        battleUI = fightUI.GetComponent<BattleUI>();
-        battleUI.CacheUIValues(testPokemon, testPokemonEnemy);
+        battleUIClass = fightUI.GetComponent<BattleUI>();
+        messageUIClass = messageUI.GetComponent<MessageUI>();
+        battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
+
         testPokemonEnemy.ResetHealth();
-        battleUI.CacheUIValues(testPokemon, testPokemonEnemy);
-    }
-    void Update()
-    {
-        if(!yourTurn){
-            ShowHUD(false);
-            AITurn();
-        }
-        else{
-            ShowHUD(true);
-            YourTurn();
-        }
+        battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
+        StartCoroutine(BattleRoutine());
     }
 
-    void AITurn(){
+    IEnumerator BattleRoutine(){
+        while(GameManager.GetGameState() == GameManager.GameState.Battle){
+            battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
+            if(!yourTurn){
+                if(!runningTurn)
+                    StartCoroutine(AITurn());
+            }else{
+                if(!runningTurn)
+                    StartCoroutine(YourTurn());
+            }
+            yield return null;
+        }
+        yield break;
+    }
+
+    IEnumerator AITurn(){
+        runningTurn = true;
+        if(fightUI.activeInHierarchy){
+            //TODO: Only make the menu dissappear
+            fightUI.SetActive(false);
+            messageUI.SetActive(true);
+        }
+        yield return new WaitForSeconds(1.5f);
         Attack(testPokemonEnemy, testPokemon, testPokemonEnemy.move1);
         yourTurn = true;
+        runningTurn = false;
     }
 
-    void YourTurn(){
-        if(Input.GetKeyDown(KeyCode.Return)){
-            if(battleUI.GetCurrentButton().name == "Fight Button"){
-                Attack(testPokemon, testPokemonEnemy, testPokemon.move1);
-                yourTurn = false;
-            }
+    IEnumerator YourTurn(){
+        runningTurn = true;
+        if(!fightUI.activeInHierarchy){
+            messageUI.SetActive(false);
+            fightUI.SetActive(true);
         }
+        while(true){ //Just run until the player makes a decision
+            if(Input.GetKeyDown(KeyCode.Return)){
+                if(battleUIClass.GetCurrentButton().name == "Fight Button"){
+                    Attack(testPokemon, testPokemonEnemy, testPokemon.move1);                    
+                    yourTurn = false;
+                    runningTurn = false;
+                    break;
+                }
+            }
+            yield return null;
+        }
+        yield break;
+
     }
     
     float TypeModifier(Type attackingType, Pokemon defendingPokemon){
@@ -99,13 +123,45 @@ public class Battle : MonoBehaviour
         return effectiveness;
     }
     void Attack(Pokemon attacker, Pokemon target, Move move){
+        bool STAB = (attacker.species.type1 == move.type || attacker.species.type2 == move.type);
+        float typeEffectiveness = TypeModifier(move.type, target);
+        switch (typeEffectiveness)
+        {
+            case 0.0f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.NoEffect;
+                break;
+            case 0.25f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.NotVeryEffective;
+                break;
+            case 0.5f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.NotVeryEffective;
+                break;
+            case 1.0f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.Normal;
+                break;
+            case 2.0f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.SuperEffective;
+                break;
+            case 4.0f:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.SuperEffective;
+                break;
+            default:
+                battleMessage.attackEffectiveness = BattleManager.AttackEffectiveness.Normal;
+                break;
+        }
+        bool crit = false;
+        battleMessage.wasMoveCritical = crit;
+        battleMessage.moveUsed = move.name;
+        battleMessage.attackerName = attacker.nickname == "" ? attacker.species.name : attacker.nickname;
+        battleMessage.targetName = target.nickname == "" ? target.species.name : target.nickname;
+        battleMessage.didMoveHit = true;
         float modifier = (/* targets modifier */ 1 /* weather modifier */ * 1 /* Gen 2 badge modifier */ * 1 /* Critical modifier */ * 1 
-                        /* Random between 0.85 and 1.00 */ * Random.Range(0.85f, 1.0f)  /* STAB */ * (attacker.species.type1 == move.type || attacker.species.type2 == move.type ? 1.5f : 1.0f)
-                         * TypeModifier(move.type, target) /* Burn status effect */ /*(move.category == Move.Category.Physical && attacker.)*/ * 1.0f /* Other interactions */ * 1.0f);
+                        /* Random between 0.85 and 1.00 */ * Random.Range(0.85f, 1.0f)  /* STAB */ * (STAB ? 1.5f : 1.0f)
+                         * typeEffectiveness /* Burn status effect */ /*(move.category == Move.Category.Physical && attacker.)*/ * 1.0f /* Other interactions */ * 1.0f);
         Debug.Log($"Damage modifier: {modifier.ToString()}");
         int damage = Mathf.FloorToInt((((2 * attacker.level / 5 + 2) * (attacker.species.type1 == move.type || attacker.species.type2 == move.type ? 1.5f : 1.0f / 50) + 2) * modifier));
         Debug.Log($"Total damage dealt: {damage.ToString()} ");
+        messageUIClass.DisplayBattleMessage(battleMessage);
         target.TakeDamage(damage);
-        battleUI.CacheUIValues(testPokemon, testPokemonEnemy);
     }
 }
