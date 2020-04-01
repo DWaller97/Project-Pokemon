@@ -4,32 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Battle : MonoBehaviour
 {
-
-    //TODO: Put all UI stuff in BattleUI class or make a master UI class
-    public GameObject fightUI, messageUI;
-    BattleUI battleUIClass;
-    MessageUI messageUIClass;
+    UI ui;
     MessageUI.BattleMessage battleMessage = new MessageUI.BattleMessage();
     public Pokemon testPokemon, testPokemonEnemy;
     Pokemon yourPokemon, enemyPokemon;
     bool attacking = false, yourTurn = true, runningTurn = false;
 
-
+    
 
     void Start()
     {
-        battleUIClass = fightUI.GetComponent<BattleUI>();
-        messageUIClass = messageUI.GetComponent<MessageUI>();
-        battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
-
+        ui = UI.GetInstance();
+        ui.battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
         testPokemonEnemy.ResetHealth();
-        battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
+        ui.battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
         StartCoroutine(BattleRoutine());
     }
 
     IEnumerator BattleRoutine(){
         while(GameManager.GetGameState() == GameManager.GameState.Battle){
-            battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
+            ui.battleUIClass.CacheUIValues(testPokemon, testPokemonEnemy);
             if(!yourTurn){
                 if(!runningTurn)
                     StartCoroutine(AITurn());
@@ -44,10 +38,10 @@ public class Battle : MonoBehaviour
 
     IEnumerator AITurn(){
         runningTurn = true;
-        if(fightUI.activeInHierarchy){
+        if(ui.battleUI.activeInHierarchy){
             //TODO: Only make the menu dissappear
-            fightUI.SetActive(false);
-            messageUI.SetActive(true);
+            ui.SetUIInactive();
+            ui.messageUI.SetActive(true);
         }
         yield return new WaitForSeconds(1.5f);
         Attack(testPokemonEnemy, testPokemon, testPokemonEnemy.move1);
@@ -57,16 +51,18 @@ public class Battle : MonoBehaviour
 
     IEnumerator YourTurn(){
         runningTurn = true;
-        if(!fightUI.activeInHierarchy){
-            messageUI.SetActive(false);
-            fightUI.SetActive(true);
+        if(!ui.battleUI.activeInHierarchy){
+            ui.SetUIInactive();
+            ui.battleUI.SetActive(true);
         }
         while(true){ //Just run until the player makes a decision
             if(Input.GetKeyDown(KeyCode.Return)){
-                if(battleUIClass.GetCurrentButton().name == "Fight Button"){
-                    Attack(testPokemon, testPokemonEnemy, testPokemon.move1);                    
-                    yourTurn = false;
-                    runningTurn = false;
+                if(ui.GetCurrentButton().name == "Fight Button"){
+                    ui.SetUIInactive();
+                    ui.moveUI.SetActive(true);
+                    while(true){
+                        break;
+                    }
                     break;
                 }
             }
@@ -161,7 +157,11 @@ public class Battle : MonoBehaviour
         Debug.Log($"Damage modifier: {modifier.ToString()}");
         int damage = Mathf.FloorToInt((((2 * attacker.level / 5 + 2) * (attacker.species.type1 == move.type || attacker.species.type2 == move.type ? 1.5f : 1.0f / 50) + 2) * modifier));
         Debug.Log($"Total damage dealt: {damage.ToString()} ");
-        messageUIClass.DisplayBattleMessage(battleMessage);
+        ui.messageUIClass.DisplayBattleMessage(battleMessage);
         target.TakeDamage(damage);
     }
+
+
+
+
 }
