@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         Menu
     };
 
-    private static GameState gameState = GameState.Battle;
+    private static GameState gameState = GameState.Overworld;
     public static Trainer trainer;
     public Trainer playerTrainer;
     private static bool stateLoaded = false;

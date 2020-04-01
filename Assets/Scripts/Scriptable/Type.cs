@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Type", menuName = "Project Pokemon/Type", order = 1)]
 public class Type : ScriptableObject
 {

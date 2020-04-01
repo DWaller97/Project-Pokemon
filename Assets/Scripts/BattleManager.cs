@@ -22,10 +22,10 @@ public class BattleManager : MonoBehaviour
         managerRef = GameManager.GetGameManager();
         //Go through all the Pokemon and load any.
         //Check for duplicates.
-        LoadAndInstantiate(managerRef.playerTrainer, playerPosition.position, Quaternion.identity); //Make it work ASync
-        LoadAndInstantiate(GameManager.trainer, enemyPosition.position, Quaternion.Euler(0, 180, 0));
-        //LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position);
-        //LoadTrainerPokemon(GameManager.trainer, enemyPosition.position);
+        // LoadAndInstantiate(managerRef.playerTrainer, playerPosition.position, Quaternion.identity); //Make it work ASync
+        // LoadAndInstantiate(GameManager.trainer, enemyPosition.position, Quaternion.Euler(0, 180, 0));
+        LoadTrainerPokemon(managerRef.playerTrainer, playerPosition.position);
+        LoadTrainerPokemon(GameManager.trainer, enemyPosition.position);
     }
 
     void LoadAndInstantiate(Trainer trainer, Vector3 pos, Quaternion rot){
