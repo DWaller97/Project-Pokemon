@@ -7,23 +7,32 @@ namespace Scripts.UI{
     public class SelectableMenu : Menu
     {
         public Dictionary<string, Button>  selectableOptions;
-        private int selectedIndex = 0, maxIndex = 0;
+        public List<Button> buttons;
+        protected int selectedIndex = 0, maxIndex = 0;
         
 
         protected override void Awake(){
+            maxIndex = buttons.Count;
             selectable = true;
             base.Awake();
-            selectableOptions = new Dictionary<string, Button>();
         }
 
         public virtual void OnEnterKeyPressed(){
+            buttons[selectedIndex].Select();
         }   
 
         public virtual void OnUpKeyPressed(){
-
+            if(selectedIndex - 1 >= 0)
+                selectedIndex--;
+            else
+                selectedIndex = maxIndex - 1;
         }
 
         public virtual void OnDownKeyPressed(){
+            if(selectedIndex + 1 < maxIndex)
+                selectedIndex++;
+            else
+                selectedIndex = 0;
         }
         
     }

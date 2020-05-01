@@ -23,22 +23,19 @@ public class MenuManager : MonoBehaviour
                     OpenPersistentMenu(enemyStats);
                     break;
             }
-
         }
 
         private void Update() {
-            foreach(SelectableMenu menu in menus){
-                if(menu.selectable){
-                    if(menu.gameObject.activeInHierarchy){ //Get rid of inactive gameobjects in the future to prevent input from closed menus.
-                        if(Input.GetKeyDown(KeyCode.Return)){
-                            menu.OnEnterKeyPressed();
-                        }
-                        if(Input.GetKeyDown(KeyCode.UpArrow)){
-                            menu.OnUpKeyPressed();
-                        }
-                        if(Input.GetKeyDown(KeyCode.DownArrow)){
-                            menu.OnDownKeyPressed();
-                        }
+            foreach(SelectableMenu menu in selectableMenus){
+                if(menu.gameObject.activeInHierarchy){ //Get rid of inactive gameobjects in the future to prevent input from closed menus.
+                    if(Input.GetKeyDown(KeyCode.Return)){
+                        menu.OnEnterKeyPressed();
+                    }
+                    if(Input.GetKeyDown(KeyCode.UpArrow)){
+                        menu.OnUpKeyPressed();
+                    }
+                    if(Input.GetKeyDown(KeyCode.DownArrow)){
+                        menu.OnDownKeyPressed();
                     }
                 }
             }
