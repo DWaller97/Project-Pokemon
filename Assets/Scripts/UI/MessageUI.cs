@@ -10,6 +10,9 @@ public class MessageUI : MonoBehaviour
     }
 
     public void DisplayBattleMessage(BattleMessage message){
+        if(!textBox.gameObject.activeInHierarchy){
+
+        }
         string effectMessage = GetEffectivenessString(message.attackEffectiveness);
         if(effectMessage == ""){
             effectMessage = "!";
@@ -19,6 +22,7 @@ public class MessageUI : MonoBehaviour
         }
         textBox.text = $"{message.attackerName} used {message.moveUsed}{effectMessage}";
     }
+
 
     public string GetEffectivenessString(BattleManager.AttackEffectiveness effectiveness){
         switch(effectiveness){

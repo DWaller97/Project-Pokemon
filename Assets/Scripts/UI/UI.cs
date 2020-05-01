@@ -8,7 +8,7 @@ public class UI : MonoBehaviour
     public static UI ui;
     public BattleUI battleUIClass;
     public MessageUI messageUIClass;
-    public MoveUI moveUIClass;
+    // public MoveUI moveUIClass;
 
     public GameObject buttonTemplate;
 
@@ -43,7 +43,7 @@ public class UI : MonoBehaviour
         ui = this;
         battleUIClass = battleUI.GetComponent<BattleUI>();
         messageUIClass = messageUI.GetComponent<MessageUI>();
-        moveUIClass = moveUI.GetComponent<MoveUI>();
+        // moveUIClass = moveUI.GetComponent<MoveUI>();
         MoveButtonObjectsFromState();
     }
 
@@ -87,7 +87,7 @@ public class UI : MonoBehaviour
                         Debug.LogError($"Invalid button index: {buttonIndex}");
                         break;
                     }
-                    
+                    //GameManager.trainer.pokemon[0].TakeDamage()
                 break;
             
             }
